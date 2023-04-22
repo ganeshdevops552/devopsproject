@@ -1,0 +1,21 @@
+version: 0.2
+
+
+phases:
+  pre_build:
+    commands:
+      - mvn clean
+      - echo Maven clean in prebuild compeletd
+  build:
+    commands:
+      - mvn install
+      - echo Maven build completed
+  
+  post_build:
+    commands:
+      - echo POst Build completed on `date`
+      
+artifacts:
+  files:
+
+   - target/servicesdevops-0.0.1-SNAPSHOT.jar
