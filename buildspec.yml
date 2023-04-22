@@ -4,15 +4,17 @@ version: 0.2
 phases:
   pre_build:
     commands:
-      - mvn clean
+      - mvn clean install
       - echo Maven clean in prebuild compeletd
   build:
     commands:
-      - mvn install
+      - docker build -t ningle30/sprintbootfromawscd .
       - echo Maven build completed
   
   post_build:
     commands:
+      - docker login --username ningle30 --password Nihar@123
+      - docker push ningle30/sprintbootfromawscd
       - echo POst Build completed on `date`
       
 artifacts:
