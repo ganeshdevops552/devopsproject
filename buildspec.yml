@@ -14,9 +14,9 @@ phases:
   post_build:
     commands:
       - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 433852985439.dkr.ecr.us-east-1.amazonaws.com
-      - docker build -t ngirepo .
-      - docker tag ngirepo:latest 433852985439.dkr.ecr.us-east-1.amazonaws.com/ngirepo:latest
-      - docker push 433852985439.dkr.ecr.us-east-1.amazonaws.com/ngirepo:latest
+      - docker build -t testrepo:1.0 .
+      - docker tag testrepo:1.0 springbootimage:1.0
+      - docker push springbootimage:1.0
 #     - docker login --username ningle30 --password Nihar@123
 #     - docker push ningle30/sprintbootfromawscd
       - echo POst Build completed on `date`
