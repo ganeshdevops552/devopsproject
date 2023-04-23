@@ -9,15 +9,14 @@ phases:
   build:
     commands:
 #      - docker build -t sprintbootfromawscd .
-      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 433852985439.dkr.ecr.us-east-1.amazonaws.com
-      - docker build -t testrepo:1.0 .
-      - docker tag testrepo:1.0 springbootimage:1.0
-      - docker push springbootimage:1.0
-      - Completed build process
+      - echo Maven build completed
   
   post_build:
     commands:
-      - docker push springbootimage:1.0
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 433852985439.dkr.ecr.us-east-1.amazonaws.com
+      - docker build -t testrepo:1.0 .
+      - docker tag testrepo:1.0 433852985439.dkr.ecr.us-east-1.amazonaws.com/testrepo:1.0
+      - docker push 433852985439.dkr.ecr.us-east-1.amazonaws.com/ngirepo:1.0
 #     - docker login --username ningle30 --password Nihar@123
 #     - docker push ningle30/sprintbootfromawscd
       - echo POst Build completed on `date`
