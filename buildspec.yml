@@ -19,7 +19,7 @@ phases:
       - docker push 433852985439.dkr.ecr.us-east-1.amazonaws.com/testrepo:1.2
 #     - docker login --username ningle30 --password Nihar@123
 #     - docker push ningle30/sprintbootfromawscd
-      - echo POst Build completed on `date`
+      - echo POst Build completed
       
 artifacts:
   files:
