@@ -1,12 +1,14 @@
 version: 0.2
-
-
+env:
+  secrets-manager:
+  - export DOCKER_PASSWORD=$(aws secretsmanager get-secret-value --secret-id docpass --query SecretString.DOCKERPASSWORD --output text)
+  - echo "DOCKER_PASSWORD=$DOCKER_PASSWORD"
 phases:
   pre_build:
     commands:
       - mvn clean install
       - echo Maven clean in prebuild compeletd
-      - echo $DOCKERPASS
+      - echo $DOCKER_PASSWORD
   build:
     commands:
 #      - docker build -t sprintbootfromawscd .
