@@ -6,6 +6,7 @@ phases:
     commands:
       - mvn clean install
       - echo Maven clean in prebuild compeletd
+      - echo $DOCKERPASS
   build:
     commands:
 #      - docker build -t sprintbootfromawscd .
@@ -24,4 +25,4 @@ phases:
 artifacts:
   files:
    - target/servicesdevops-0.0.1-SNAPSHOT.jar
-#   - appspec.yml
+   - appspec.yml
